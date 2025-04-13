@@ -7,12 +7,17 @@ import 'package:orapay_prokit/store/AppStore.dart';
 import 'package:orapay_prokit/utils/AppTheme.dart';
 import 'package:orapay_prokit/utils/Colors.dart';
 import 'package:orapay_prokit/utils/OPDataProvider.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart'; 
 
 
 AppStore appStore = AppStore();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   await initialize(aLocaleLanguageList: languageList());
 
